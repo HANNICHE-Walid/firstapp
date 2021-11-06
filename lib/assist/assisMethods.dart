@@ -6,7 +6,7 @@ class AssiMethod {
   static Future<String> searchCooredinationAdress(Position position) async {
     String Adressplace = "";
     String url =
-        "https://maps.googleapis.com/maps/api/geocode/json?${position.latitude},${position.altitude}=$mapKey";
+        "https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.latitude},${position.altitude}&key=${mapKey}";
     var responce = await RequestAssist.getReqeust(url);
     if (responce != "echech") {
       Adressplace = responce["results"][0]["formatted_address"];
